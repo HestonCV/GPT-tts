@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s;
+}
+
+.container
+{
+    display: flex;
+    align-items: center;
+}
+
+#indicator{
+    background-color: red;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+#bot-indicator {
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
