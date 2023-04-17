@@ -12,9 +12,6 @@ import requests
 devnull = os.open(os.devnull, os.O_WRONLY)
 os.dup2(devnull, sys.stderr.fileno())
 
-
-
-
 openai.api_key = "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"
 
 messages = [

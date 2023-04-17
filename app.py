@@ -12,9 +12,9 @@ def index():
 def get_color():
     global variable
     if variable:
-        return jsonify({'color': 'green'})
+        return jsonify({'color': 'rgba(0, 128, 0, 0.442)'})
     else:
-        return jsonify({'color': 'red'})
+        return jsonify({'color': 'rgba(255, 0, 0, 0.442)'})
 
 @app.route('/set_color', methods=['POST'])
 def set_color():
