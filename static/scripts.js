@@ -1,3 +1,13 @@
+async function addBotText(text)
+{
+
+}
+
+async function addUserText(text)
+{
+    
+}
+
 async function updateColor() {
     const indicator = document.querySelector("#indicator")
     const response = await fetch('/get_color');

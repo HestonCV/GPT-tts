@@ -2,9 +2,10 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
 
-    --fontColor: rgb(239, 239, 239);
+    --leftBackgroundColor: rgb(35, 35, 35);
+    --fontColor: rgb(244, 244, 244);
 }
 
 .container {
@@ -20,12 +21,13 @@ body {
     max-width: 300px;
     min-width: 260;
     padding: 10px;
-    background: rgb(33, 31, 39);
+    background: var(--leftBackgroundColor);
+    font-weight: 900;
 }
 
 .new-chat {
     display: flex;
-    background-color: rgb(33, 31, 39);
+    background-color: var(--leftBackgroundColor);
     color: var(--fontColor);
     border: 1px solid rgb(96, 96, 96);
     justify-content: flex-start;
@@ -70,10 +72,10 @@ body {
     flex: 1;
 
     border: none;
-    background-color: rgb(33, 31, 39);
+    background-color: var(--leftBackgroundColor);
     color: var(--fontColor);
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700px;
 }
 
@@ -94,12 +96,55 @@ button:hover {
     flex: 1;
 }
 
+.header {
+    color: rgb(150, 150, 150);
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid rgb(217, 217, 217);
+    background-color: rgb(228, 228, 228);
+}
+
 .chat {
+    display: grid;
+    overflow: auto;
+    grid-template-columns: 100%;
     flex: 8;
 
+    padding: 0;
     background: rgb(250, 250, 250);
 }
 
+.message-container {
+    display: flex;
+    gap: 4%;
+    padding: 25px 22%;
+}
+
+.messenger {
+    background-color: rgb(171, 234, 255);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.457);
+    border-radius: 1px;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+
+}
+
+.text {   
+    font-size: 1.5rem;
+}
+
+.bot {
+    border-top: 1px solid rgb(226, 226, 226);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    background-color: rgb(245, 245, 245);
+}
+
+p {
+    display: inline;
+}
 form {
     display: flex;
     justify-content: center;

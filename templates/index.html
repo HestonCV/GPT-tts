@@ -6,6 +6,9 @@
     <title>Color Change</title>
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -21,7 +24,102 @@
             </div>
         </div>
         <div class="right">
-            <div class="chat"></div>
+            <div class="header">Model: GPT-3.5-turbo</div>
+            <div class="chat">
+                <div class="message-container">
+                    <div class="messenger message"></div>
+                    <div class="text user">
+                        <p>Yes, you can prevent the element from collecting the whitespace of the indent by using the text-indent CSS property to remove the indentation.
+                            Here's an example:
+                    
+                            html
+                            Copy code
+                            This is some text that will not be indented in the source code, but will still be displayed within a element.
+                            <br><br>                  css
+                            Copy code
+                            .no-indent {
+                              text-indent: 0; /*  remove indentation */
+                            }
+                            In this example, the no-indent class is added to the element to remove the indentation. The text-indent property is set to 0 to remove any indentation that may be present in the source code.
+                    
+                            With this CSS property applied, the element will not collect the whitespace of the indent, making your code more readable without affecting the displayed output.
+                    
+                            However, if you still want to display the indentation visually, you can use CSS to apply a margin or padding to the element instead of using whitespace. For example:
+                    
+                            html
+                            Copy code
+                              This is some text that <br><br>will be indented using CSS, not whitespace.
+                            css
+                            Copy code
+                            .with-indent {
+                              margin-left: 20px; /* apply a margin to create indentation */
+                            }
+                            In this example, the with-indent class is added to the element to apply a margin for indentation. The margin-left property is set to 20px to create a left margin of 20 pixels, which will visually indent the text without using whitespace.</p>
+                    </div>
+                </div>
+                <div class="message-container bot">
+                    <div class="messenger"></div>
+                    <div class="text">
+                        <p>Yes, you can prevent the element from collecting the whitespace of the indent by using the text-indent CSS property to remove the indentation.
+                            Here's an example:
+                    
+                            html
+                            Copy code
+                            This is some <br><br>text that will not be indented in the source code, but will still be displayed within a element.
+                                                    css
+                            Copy code
+                            .no-indent {
+                              text-indent: 0; /* remove indentation */
+                            }
+                            In this example, the no-indent class is added to the element to remove the indentation. The text-indent property is set to 0 to remove any indentation that may be present in the source code.
+                    
+                            With this CSS property applied, the element will not collect the whitespace of the indent, making your code more readable without affecting the displayed output.
+                    
+                            However, if you still want to display the indentation visually, you can use CSS to apply a margin or padding to the element instead of using whitespace. For example:
+                    
+                            html
+                            Copy code
+                              This is some text <br><br>that will be indented using CSS, not whitespace.
+                            css
+                            Copy code
+                            .with-indent {
+                              margin-left: 20px; /* apply a margin to create indentation */
+                            }
+                            In this example, the with-indent class is added to the element to apply a margin for indentation. The margin-left property is set to 20px to create a left margin of 20 pixels, which will visually indent the text without using whitespace.</p>
+                    </div>
+                </div>
+                <div class="message-container">
+                    <div class="messenger message"></div>
+                    <div class="text user">
+                        <p>Yes, you can prevent the element from collecting the whitespace of the indent by using the text-indent CSS property to remove the indentation.
+                            Here's an example:
+                    
+                            html
+                            Copy code
+                            This is some text that will not be indented in the source code, but will still be displayed within a element.
+                            <br><br>                  css
+                            Copy code
+                            .no-indent {
+                              text-indent: 0; /*  remove indentation */
+                            }
+                            In this example, the no-indent class is added to the element to remove the indentation. The text-indent property is set to 0 to remove any indentation that may be present in the source code.
+                    
+                            With this CSS property applied, the element will not collect the whitespace of the indent, making your code more readable without affecting the displayed output.
+                    
+                            However, if you still want to display the indentation visually, you can use CSS to apply a margin or padding to the element instead of using whitespace. For example:
+                    
+                            html
+                            Copy code
+                              This is some text that <br><br>will be indented using CSS, not whitespace.
+                            css
+                            Copy code
+                            .with-indent {
+                              margin-left: 20px; /* apply a margin to create indentation */
+                            }
+                            In this example, the with-indent class is added to the element to apply a margin for indentation. The margin-left property is set to 20px to create a left margin of 20 pixels, which will visually indent the text without using whitespace.</p>
+                    </div>
+                </div>
+            </div>
             <form action="#">
                 <input type="text" id="indicator" placeholder="">
             </form>
