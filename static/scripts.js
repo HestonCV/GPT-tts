@@ -1,16 +1,29 @@
 async function clearChat()
 {
-    console.log("test clear");
     const rightSide = document.querySelector(".right");
     const chatContainer = document.querySelector(".chat");
     chatContainer.remove();
     const newChatContainer = document.createElement("div");
     newChatContainer.classList.add("chat");
     rightSide.insertBefore(newChatContainer, rightSide.lastElementChild);
+
+    //add the title "TalkGPT" back
+    const form = document.querySelector("form");
+    const title = document.createElement("div");
+    title.classList.add("title");
+    form.appendChild(title);
+    title.textContent = "TalkGPT";
 }
 
 async function addUserText(text)
 {
+    //remove "TalkGPT" title
+    const title = document.querySelector(".title");
+    if(title)
+    {
+        title.remove();
+    }
+
     const chatContainer = document.querySelector(".chat");
 
     const messageContainer = document.createElement("div");
@@ -35,10 +48,20 @@ async function addUserText(text)
         return '<code>' + code + '</code>';
       });
     textPre.innerHTML = formattedOutput;
+
+    //scroll down when new message is sent
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 async function addBotText(text)
 {
+    //remove "TalkGPT" title
+    const title = document.querySelector(".title");
+    if(title)
+    {
+        title.remove();
+    }
+
     const chatContainer = document.querySelector(".chat");
 
     const messageContainer = document.createElement("div");
@@ -63,6 +86,9 @@ async function addBotText(text)
         return '<code>' + code + '</code>';
       });
     textPre.innerHTML = formattedOutput;
+
+    //scroll down when new message is sent
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 async function updateColor()
@@ -108,5 +134,3 @@ const clearButton = document.querySelector(".clear-chat");
 clearButton.addEventListener("click", () => {
     clearChat();
 });
-
-clearChat();
