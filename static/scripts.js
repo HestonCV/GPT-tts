@@ -1,6 +1,6 @@
 async function clearChat()
 {
-    console.log("test");
+    console.log("test clear");
     const rightSide = document.querySelector(".right");
     const chatContainer = document.querySelector(".chat");
     chatContainer.remove();
@@ -70,10 +70,10 @@ async function updateUserText()
 {
     const response = await fetch('/get_user_text');
     const data = await response.json();
-
+    console.log("userid: " + user_id);
     if(data.id !== user_id)
     {
-        console.log("test1")
+        console.log("test update user text")
         addUserText(data.text);
         user_id = data.id;
     }
@@ -85,7 +85,7 @@ async function updateBotText()
     const data = await response.json();
     if(data.id !== bot_id)
     {
-        console.log("test")
+        console.log("test update bot text")
         addBotText(data.text);
         bot_id = data.id;
     }

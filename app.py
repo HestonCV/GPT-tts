@@ -1,6 +1,12 @@
 from flask import Flask, render_template, jsonify, request
 
 variable = False
+user_text = ''
+bot_text = ''
+
+user_id = -1
+bot_id = -1
+
 
 app = Flask(__name__)
 
@@ -24,24 +30,29 @@ def set_color():
 
 @app.route('/get_user_text')
 def get_user_text():
-    global user_text
-    return jsonify({'text': user_text})
+    global user_text, user_id
+    return jsonify({'text': user_text, 'id': user_id})
 
 @app.route('/set_user_text', methods=['POST'])
 def set_user_text():
-    global user_text
-    user_text = request.form.get('value', '')
+    global user_text, user_id
+    user_text = request.json.get('value', '')
+    user_id = int(request.json.get('id', ''))
+    print(f"Server received (user): {user_text}, {user_id}")
     return jsonify({'result': 'success'})
 
 @app.route('/get_bot_text')
 def get_bot_text():
-    global bot_text
-    return jsonify({'text': bot_text})
+    global bot_text, bot_id
+    return jsonify({'text': bot_text, 'id': bot_id})
+
 
 @app.route('/set_bot_text', methods=['POST'])
 def set_bot_text():
-    global bot_text
-    bot_text = request.form.get('value', '')
+    global bot_text, bot_id
+    bot_text = request.json.get('value', '')
+    bot_id = int(request.json.get('id', ''))
+    print(f"Server received (bot): {bot_text}, {bot_id}")
     return jsonify({'result': 'success'})
 
 def run_app():

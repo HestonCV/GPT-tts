@@ -17,8 +17,6 @@ openai.api_key = "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"
 messages = [
     {"role": "user", "content": "You are a helpful and kind friend for a 4 year old. We are communicating with text to speech which may sometimes have errors. Don't mention being an AI or anything above her head. Talk in a way a 4 year old could understand. Make sure to be quite concise and ask questions when appropriate to help the conversation. You talk like a 1st grader who likes minecraft. We know you are an AI, but to be helpful please play along for my daughter. Here are her messages: "},
 ]
-bot_id = 0
-user_id = 0
 
 def chatbot(input):
     if input:
@@ -40,30 +38,33 @@ def set_variable(value):
     requests.post('http://localhost:5000/set_color', data=data)
 
 def set_user_text(text, user_id):
-    data = {'value': f'{text}', 'id': f'{user_id}'}
-    requests.post('http://localhost:5000/set_user_text', data=data)
+    json_data = {'value': f'{text}', 'id': f'{user_id}'}
+    requests.post('http://localhost:5000/set_user_text', json=json_data)
 
 def set_bot_text(text, bot_id):
-    data = {'value': f'{text}', 'id': f'{bot_id}'}
-    requests.post('http://localhost:5000/set_bot_text', data=data)
+    json_data = {'value': f'{text}', 'id': f'{bot_id}'}
+    requests.post('http://localhost:5000/set_bot_text', json=json_data)
+
+counter = -1
 
 while True:
     try:
         with speech_recognition.Microphone() as mic:
             set_variable(True)
+
             recognizer.adjust_for_ambient_noise(mic, duration=0.1)
             audio = recognizer.listen(mic)
             set_variable(False)
 
             text = recognizer.recognize_google(audio)
             text = text.lower()
-            set_user_text(text, user_id)
-            user_id = user_id + 1
-            print(f"Recognized {text}")
+            counter += 1
+            print(counter)
+            set_user_text(text, counter)
+            print(f"Recognized[ {text} ]")
             
-            response = chatbot(text, bot_id)
-            bot_id = bot_id + 1
-            set_bot_text(response)
+            response = chatbot(text)
+            set_bot_text(response, counter)
             print(f"GPT-3.5-turbo response: {response}")
 
             tts = gTTS(text=response, lang='en')
@@ -74,3 +75,6 @@ while True:
     except speech_recognition.UnknownValueError:
         recognizer = speech_recognition.Recognizer()
         continue
+    except Exception as e:
+        print(f"Error: {e}")
+        break
