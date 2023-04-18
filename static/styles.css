@@ -183,7 +183,7 @@ input:focus {
 
 #indicator{
     background-color: rgba(0, 128, 0, 0.442);
-    transition: background-color 0.5s;
+    transition: background-color 0.35s;
 }
 
 #bot-indicator {

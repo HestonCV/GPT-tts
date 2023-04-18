@@ -81,10 +81,8 @@ async function updateUserText()
 {
     const response = await fetch('/get_user_text');
     const data = await response.json();
-    console.log("userid: " + user_id);
     if(data.id !== user_id)
     {
-        console.log("test update user text")
         addUserText(data.text);
         user_id = data.id;
     }
@@ -96,7 +94,6 @@ async function updateBotText()
     const data = await response.json();
     if(data.id !== bot_id)
     {
-        console.log("test update bot text")
         addBotText(data.text);
         bot_id = data.id;
     }
