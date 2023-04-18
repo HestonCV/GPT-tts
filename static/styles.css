@@ -192,3 +192,7 @@ input:focus {
     width: 30px;
     height: 30px;
 }
+
+  code {
+    color: rgb(19, 157, 19);
+  }

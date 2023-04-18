@@ -29,7 +29,12 @@ async function addUserText(text)
     messageContainer.appendChild(textContainer);
 
     textContainer.appendChild(textPre);
-    textPre.textContent = text;
+
+    const codeRegex = /```([\s\S]*?)```/g;
+    const formattedOutput = text.replace(codeRegex, (match, code) => {
+        return '<code>' + code + '</code>';
+      });
+    textPre.innerHTML = formattedOutput;
 }
 
 async function addBotText(text)
@@ -51,7 +56,13 @@ async function addBotText(text)
     messageContainer.appendChild(messengerIcon);
     messageContainer.appendChild(textContainer);
     textContainer.appendChild(textPre);
-    textPre.textContent = text;
+
+
+    const codeRegex = /```([\s\S]*?)```/g;
+    const formattedOutput = text.replace(codeRegex, (match, code) => {
+        return '<code>' + code + '</code>';
+      });
+    textPre.innerHTML = formattedOutput;
 }
 
 async function updateColor()
