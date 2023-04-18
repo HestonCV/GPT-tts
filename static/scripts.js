@@ -54,7 +54,7 @@ async function addBotText(text)
     textPre.textContent = text;
 }
 
-/* async function updateColor()
+async function updateColor()
 {
     const indicator = document.querySelector("#indicator")
     const response = await fetch('/get_color');
@@ -62,34 +62,43 @@ async function addBotText(text)
     indicator.style.backgroundColor = data.color;
 }
 
+
+let user_id = -1;
+let bot_id = -1;
+
 async function updateUserText()
 {
     const response = await fetch('/get_user_text');
     const data = await response.json();
-    addUserText(data.text);
+
+    if(data.id !== user_id)
+    {
+        console.log("test1")
+        addUserText(data.text);
+        user_id = data.id;
+    }
 }
 
 async function updateBotText()
 {
     const response = await fetch('/get_bot_text');
     const data = await response.json();
-    addBotText(data.text);
+    if(data.id !== bot_id)
+    {
+        console.log("test")
+        addBotText(data.text);
+        bot_id = data.id;
+    }
 }
 
 
 setInterval(updateColor, 1000);
 setInterval(updateUserText, 1000);
-setInterval(updateBotText, 1000); */
+setInterval(updateBotText, 1000);
 
 const clearButton = document.querySelector(".clear-chat");
 clearButton.addEventListener("click", () => {
     clearChat();
 });
 
-/* clearChat();
-addUserText("Hello");
-addBotText("Hello! How can I assist you today?");
-addUserText("What about CSS stuff??");
-addBotText("This example sets the color of the input placeholder to light gray. You can replace lightgray with any color value you prefer, such as a hex color code (e.g., #CCCCCC), an RGB value (e.g., rgb(192, 192, 192)), or any valid CSS color name.\
-\
-Remember to include the browser-specific prefixes to ensure compatibility across different browsers.") */
+clearChat();
